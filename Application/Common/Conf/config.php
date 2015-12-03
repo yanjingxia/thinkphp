@@ -6,7 +6,6 @@
 $public_config = array(
 	//'配置项'=>'配置值'
     'DEFAULT_MODULE'        =>  'Home',  // 默认模块
-    'URL_CASE_INSENSITIVE'  =>  false,   // 大小写敏感
     'MODULE_DENY_LIST'      =>  array('Common','Runtime'),  // 设置禁止访问的模块列表
     
     'TOKEN_ON'      =>    true,  // 是否开启令牌验证 默认关闭
@@ -18,6 +17,14 @@ $public_config = array(
 //   'TMPL_ENGINE_CONFIG'    => array(
 //        'plugins_dir'=>'./ThinkPHP/Library/Vendor/',
 //    ),
+
+    'URL_CASE_INSENSITIVE' => true, //默认false 表示URL区分大小写 true则表示不区分大小写
+    'URL_MODEL'            => 3, //URL模式
+    'VAR_URL_PARAMS'       => '', // PATHINFO URL参数变量
+    'URL_PATHINFO_DEPR'    => '/', //PATHINFO URL分割符
+
+    /* 加载扩展配置文件 */
+    'LOAD_EXT_CONFIG' => 'sdk_config',
 );
 
 $env_config = require_once APP_ENV."/config.php";
