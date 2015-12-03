@@ -12,6 +12,18 @@ $public_config = array(
     'TOKEN_NAME'    =>    '__hash__',    // 令牌验证的表单隐藏字段名称，默认为__hash__
     'TOKEN_TYPE'    =>    'md5',  // 令牌哈希验证规则 默认为MD5
     'TOKEN_RESET'   =>    true,  // 令牌验证出错后是否重置令牌 默认为true
+
+    'SESSION_AUTO_START'    =>  true,    // 是否自动开启Session
+    'SESSION_OPTIONS'       =>  array(), // session 配置数组 支持type name id path expire domain 等参数
+    'SESSION_TYPE'          =>  '', // session hander类型 默认无需设置 除非扩展了session hander驱动
+    'SESSION_PREFIX'        =>  '', // session 前缀
+
+    /* 数据缓存设置 */
+    'DATA_CACHE_TIME'       =>  0,      // 数据缓存有效期 0表示永久缓存
+    'DATA_CACHE_COMPRESS'   =>  false,   // 数据缓存是否压缩缓存
+    'DATA_CACHE_CHECK'      =>  false,   // 数据缓存是否校验缓存
+    'DATA_CACHE_PREFIX'     =>  '',     // 缓存前缀
+    'DATA_CACHE_TYPE'       =>  'File',  // 数据缓存类型,支持:File|Db|Apc|Memcache|Shmop|Sqlite|Xcache|Apachenote|Eaccelerator
     
 //    'TMPL_ENGINE_TYPE'      => 'Smarty',
 //   'TMPL_ENGINE_CONFIG'    => array(

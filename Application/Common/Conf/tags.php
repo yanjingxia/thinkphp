@@ -1,7 +1,7 @@
 <?php
 return array(
-    // Ìí¼ÓÏÂÃæÒ»ÐÐ¶¨Òå¼´¿É
+    // æ·»åŠ ä¸‹é¢ä¸€è¡Œå®šä¹‰å³å¯
     //'view_filter' => array('Behavior\TokenBuild'),
-    // Èç¹ûÊÇ3.2.1ÒÔÉÏ°æ±¾ ÐèÒª¸Ä³É
+    // å¦‚æžœæ˜¯3.2.1ä»¥ä¸Šç‰ˆæœ¬ éœ€è¦æ”¹æˆ
     'view_filter' => array('Behavior\TokenBuildBehavior'),
 );
