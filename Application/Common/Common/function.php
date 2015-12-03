@@ -4,7 +4,7 @@ import('ORG.Util.PasswordHash');
 
 
 /**
- * µİ¹é·½Ê½µÄ¶Ô±äÁ¿ÖĞµÄ¿Õ¸ñtrim
+ * é€’å½’æ–¹å¼çš„å¯¹å˜é‡ä¸­çš„ç©ºæ ¼trim
  *
  * @access  public
  * @param   mix   $value
@@ -19,7 +19,7 @@ function cleanCharacterDeep($value) {
     }
 }
 
-/* µİ¹éµ÷ÓÃaddslashes£¬Îª×Ö·û´®ÖĞµÄ'»òÕß"µÈ¼ÓÉÏ·´Ğ±Ïß×ªÒå */
+/* é€’å½’è°ƒç”¨addslashesï¼Œä¸ºå­—ç¬¦ä¸²ä¸­çš„'æˆ–è€…"ç­‰åŠ ä¸Šåæ–œçº¿è½¬ä¹‰ */
 function new_addslashes($string)
 {
     if(get_magic_quotes_gpc())
@@ -35,7 +35,7 @@ function new_addslashes($string)
 }
 
 /**
- * µİ¹é·½Ê½µÄ¶Ô±äÁ¿htmlspecialchars
+ * é€’å½’æ–¹å¼çš„å¯¹å˜é‡htmlspecialchars
  */
 function htmlspecialcharsRecurs($value) {
     if (empty($value)) {
@@ -46,22 +46,22 @@ function htmlspecialcharsRecurs($value) {
 }
 
 
-// ·¢ËÍÓÊ¼ş
+// å‘é€é‚®ä»¶
 function sendMail($address, $title, $message, $cc, $from = "360alarm@alarm.360.cn")
 {
     $mail 				= new \PHPMailer ();
-    $mail->Host 	    = '127.0.0.1'; // ÉèÖÃSMTP·şÎñÆ÷
-    $mail->Port         = 25;   //SMTP·şÎñÆ÷¶Ë¿Ú
-    $mail->SMTPAuth     = false; // ÉèÖÃÎª"²»ĞèÒªÑéÖ¤"
-    //$mail->Username     = 'username@163.com';  //·¢ËÍÈËµÄÓÊÏäÕË»§
-    //$mail->Password     = 'xxxxxxxxxx';   //·¢ËÍÈËµÄÓÊÏäÃÜÂë
-    $mail->CharSet      = 'UTF-8'; // ÉèÖÃÓÊ¼şµÄ×Ö·û±àÂë£¬Èô²»Ö¸¶¨£¬ÔòÎª'UTF-8'
-    $mail->SMTPDebug 	= false; // ¹Ø±Õµ÷ÊÔ
-    $mail->WordWrap     = 50;  // »»ĞĞ×Ö·ûÊı
-    $mail->IsHTML ( true ); // ÉèÖÃÓÊ¼ş¸ñÊ½ÎªHTML
-    $mail->IsSMTP (); // ÉèÖÃPHPMailerÊ¹ÓÃSMTP·şÎñÆ÷·¢ËÍEmail   
+    $mail->Host 	    = '127.0.0.1'; // è®¾ç½®SMTPæœåŠ¡å™¨
+    $mail->Port         = 25;   //SMTPæœåŠ¡å™¨ç«¯å£
+    $mail->SMTPAuth     = false; // è®¾ç½®ä¸º"ä¸éœ€è¦éªŒè¯"
+    //$mail->Username     = 'username@163.com';  //å‘é€äººçš„é‚®ç®±è´¦æˆ·
+    //$mail->Password     = 'xxxxxxxxxx';   //å‘é€äººçš„é‚®ç®±å¯†ç 
+    $mail->CharSet      = 'UTF-8'; // è®¾ç½®é‚®ä»¶çš„å­—ç¬¦ç¼–ç ï¼Œè‹¥ä¸æŒ‡å®šï¼Œåˆ™ä¸º'UTF-8'
+    $mail->SMTPDebug 	= false; // å…³é—­è°ƒè¯•
+    $mail->WordWrap     = 50;  // æ¢è¡Œå­—ç¬¦æ•°
+    $mail->IsHTML ( true ); // è®¾ç½®é‚®ä»¶æ ¼å¼ä¸ºHTML
+    $mail->IsSMTP (); // è®¾ç½®PHPMailerä½¿ç”¨SMTPæœåŠ¡å™¨å‘é€Email   
     
-    // Ìí¼Ó³­ËÍµØÖ·£¬¿ÉÒÔ¶à´ÎÊ¹ÓÃÀ´Ìí¼Ó¶à¸öÊÕ¼şÈË
+    // æ·»åŠ æŠ„é€åœ°å€ï¼Œå¯ä»¥å¤šæ¬¡ä½¿ç”¨æ¥æ·»åŠ å¤šä¸ªæ”¶ä»¶äºº
     if (is_array ( $cc )) {
         foreach ( $cc as $val ) {
             $mail->AddCC ( $val );
@@ -70,7 +70,7 @@ function sendMail($address, $title, $message, $cc, $from = "360alarm@alarm.360.c
         $mail->AddCC ( $cc );
     }
 
-    // Ìí¼ÓÊÕ¼şÈËµØÖ·£¬¿ÉÒÔ¶à´ÎÊ¹ÓÃÀ´Ìí¼Ó¶à¸öÊÕ¼şÈË
+    // æ·»åŠ æ”¶ä»¶äººåœ°å€ï¼Œå¯ä»¥å¤šæ¬¡ä½¿ç”¨æ¥æ·»åŠ å¤šä¸ªæ”¶ä»¶äºº
     if (is_array ( $address )) {
         foreach ( $address as $val ) {
             $mail->AddAddress ( $val );
@@ -79,24 +79,24 @@ function sendMail($address, $title, $message, $cc, $from = "360alarm@alarm.360.c
         $mail->AddAddress ( $address );
     }
     
-    $mail->Subject 	= $title; // ÉèÖÃÓÊ¼ş±êÌâ
-    $mail->FromName = $from; // ÉèÖÃ·¢¼şÈËÃû×Ö
-    $mail->From 	= $from; // ÉèÖÃÓÊ¼şÍ·µÄFrom×Ö¶Î
-    $mail->Body 	= $message; // ÉèÖÃÓÊ¼şÕıÎÄ
+    $mail->Subject 	= $title; // è®¾ç½®é‚®ä»¶æ ‡é¢˜
+    $mail->FromName = $from; // è®¾ç½®å‘ä»¶äººåå­—
+    $mail->From 	= $from; // è®¾ç½®é‚®ä»¶å¤´çš„Fromå­—æ®µ
+    $mail->Body 	= $message; // è®¾ç½®é‚®ä»¶æ­£æ–‡
     
-    // ·¢ËÍÓÊ¼ş¡£
+    // å‘é€é‚®ä»¶ã€‚
     $ret 			= $mail->Send ();
     if (! $ret) {
-        // ·¢ËÍ´íÎó¼ÇÂ¼ÈÕÖ¾
+        // å‘é€é”™è¯¯è®°å½•æ—¥å¿—
         \Think\Log::record("send mail failed, Error detail: " . $mail->ErrorInfo, 'ERR');
     }
     return $ret;
 }
 
 /**
- * ¸ù¾İÖ¸¶¨µÄ¼ü¶ÔÊı×éÅÅĞò
+ * æ ¹æ®æŒ‡å®šçš„é”®å¯¹æ•°ç»„æ’åº
  *
- * ÓÃ·¨£º
+ * ç”¨æ³•ï¼š
  * @code php
  * $rows = array(
  * array('id' => 1, 'value' => '1-1', 'parent' => 1),
@@ -109,7 +109,7 @@ function sendMail($address, $title, $message, $cc, $from = "360alarm@alarm.360.c
  *
  * $rows = Helper_Array::sortByCol($rows, 'id', SORT_DESC);
  * dump($rows);
- * // Êä³ö½á¹ûÎª£º
+ * // è¾“å‡ºç»“æœä¸ºï¼š
  * // array(
  * // array('id' => 6, 'value' => '6-1', 'parent' => 3),
  * // array('id' => 5, 'value' => '5-1', 'parent' => 2),
@@ -120,11 +120,11 @@ function sendMail($address, $title, $message, $cc, $from = "360alarm@alarm.360.c
  * // )
  * @endcode
  *
- * @param array $array ÒªÅÅĞòµÄÊı×é
- * @param string $keyname ÅÅĞòµÄ¼ü
- * @param int $dir ÅÅĞò·½Ïò
+ * @param array $array è¦æ’åºçš„æ•°ç»„
+ * @param string $keyname æ’åºçš„é”®
+ * @param int $dir æ’åºæ–¹å‘
  *
- * @return array ÅÅĞòºóµÄÊı×é
+ * @return array æ’åºåçš„æ•°ç»„
  */
 function sortByCol($array, $keyname, $dir = SORT_ASC)
 {
@@ -132,9 +132,9 @@ function sortByCol($array, $keyname, $dir = SORT_ASC)
 } 
 
 /**
- * ½«Ò»¸ö¶şÎ¬Êı×é°´ÕÕ¶à¸öÁĞ½øĞĞÅÅĞò£¬ÀàËÆ SQL Óï¾äÖĞµÄ ORDER BY
+ * å°†ä¸€ä¸ªäºŒç»´æ•°ç»„æŒ‰ç…§å¤šä¸ªåˆ—è¿›è¡Œæ’åºï¼Œç±»ä¼¼ SQL è¯­å¥ä¸­çš„ ORDER BY
  *
- * ÓÃ·¨£º
+ * ç”¨æ³•ï¼š
  * @code php
  * $rows = Helper_Array::sortByMultiCols($rows, array(
  * 'parent' => SORT_ASC,
@@ -142,10 +142,10 @@ function sortByCol($array, $keyname, $dir = SORT_ASC)
  * ));
  * @endcode
  *
- * @param array $rowset ÒªÅÅĞòµÄÊı×é
- * @param array $args ÅÅĞòµÄ¼ü
+ * @param array $rowset è¦æ’åºçš„æ•°ç»„
+ * @param array $args æ’åºçš„é”®
  *
- * @return array ÅÅĞòºóµÄÊı×é
+ * @return array æ’åºåçš„æ•°ç»„
  */
 function sortByMultiCols($rowset, $args)
 {
@@ -165,7 +165,7 @@ function sortByMultiCols($rowset, $args)
 }
 
 /**
-*¼ÆËãÃÜÂëµÄhashÖµ
+*è®¡ç®—å¯†ç çš„hashå€¼
 */
 function hashPassword($password) {
     $passwordHash = new Org\Util\PasswordHash(8, false);
@@ -173,7 +173,7 @@ function hashPassword($password) {
 }
 
 /**
-*±È¶ÔÃÜÂëµÄhashÖµÊÇ·ñÕıÈ·
+*æ¯”å¯¹å¯†ç çš„hashå€¼æ˜¯å¦æ­£ç¡®
 */
 function checkPassword($password, $stored_hash) {
     $passwordHash = new Org\Util\PasswordHash(8, false);
@@ -262,4 +262,48 @@ function xcurl_post($url, $post = array(), $header = array(), $options = array()
         \Think\Log::record("xcurl_post failed, Error detail: " . $response->status_code, 'ERR');
         return false;
     }
+}
+
+/**
+ * è·¨å¹³å°æ‰§è¡Œè„šæœ¬
+ *
+ * @return array
+ * array['output'] æ‰§è¡Œåçš„è¾“å‡ºç»“æœ
+ * array['status'] æ‰§è¡ŒçŠ¶æ€ 0ä¸ºæ­£å¸¸ 127 æ‰¾ä¸åˆ°è„šæœ¬ 126æ²¡æœ‰æ‰§è¡Œè¯¥shellè„šæœ¬æƒé™
+ */
+function terminal($command) {
+    // system
+    if (function_exists ( 'system' )) {
+        ob_start ();
+        system ( $command, $return_var );
+        $output = ob_get_contents ();
+        ob_end_clean ();
+    }   // passthru
+    else if (function_exists ( 'passthru' )) {
+        ob_start ();
+        passthru ( $command, $return_var );
+        $output = ob_get_contents ();
+        ob_end_clean ();
+    }   
+
+    // exec
+    else if (function_exists ( 'exec' )) {
+        exec ( $command, $output, $return_var );
+        $output = implode ( "\n", $output );
+    }   
+
+    // shell_exec
+    else if (function_exists ( 'shell_exec' )) {
+        $output = shell_exec ( $command );
+    } 
+
+    else {
+        $output = 'Command execution not possible on this system';
+        $return_var = 1;
+    }
+    
+    return array (
+        'output' => $output,
+        'status' => $return_var 
+    );
 }
