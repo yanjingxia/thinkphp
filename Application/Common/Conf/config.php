@@ -13,10 +13,19 @@ $public_config = array(
     'TOKEN_TYPE'    =>    'md5',  // 令牌哈希验证规则 默认为MD5
     'TOKEN_RESET'   =>    true,  // 令牌验证出错后是否重置令牌 默认为true
 
+    /* SESSION设置 */
     'SESSION_AUTO_START'    =>  true,    // 是否自动开启Session
     'SESSION_OPTIONS'       =>  array(), // session 配置数组 支持type name id path expire domain 等参数
     'SESSION_TYPE'          =>  '', // session hander类型 默认无需设置 除非扩展了session hander驱动
     'SESSION_PREFIX'        =>  '', // session 前缀
+
+    /* Cookie设置 */
+    'COOKIE_EXPIRE'         =>  0,       // Cookie有效期
+    'COOKIE_DOMAIN'         =>  '',      // Cookie有效域名
+    'COOKIE_PATH'           =>  '/',     // Cookie路径
+    'COOKIE_PREFIX'         =>  '',      // Cookie前缀 避免冲突
+    'COOKIE_SECURE'         =>  false,   // Cookie安全传输
+    'COOKIE_HTTPONLY'       =>  '1',      // Cookie httponly设置
 
     /* 数据缓存设置 */
     'DATA_CACHE_TIME'       =>  0,      // 数据缓存有效期 0表示永久缓存
